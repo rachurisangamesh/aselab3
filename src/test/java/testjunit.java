@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +17,11 @@ public class testjunit {
 
 	@Test
 	public void testFactorial() {
-		assertEquals(5040,trignometry.factorial(7), 0.01);
+		assertEquals(7*6*5*4*3*2*1,trignometry.factorial(7), 0.01);
 	}
 		
 	@Test
-	public void testTrignometrySin() {
+	public void testTrignometrySin() throws Exception{
 //		  First Quadrant
 	    assertEquals(Math.sin(37.5*Math.PI/180), trignometry.sin(37.5), 0.01);
 	    assertEquals(Math.sin(22*Math.PI/180), trignometry.sin(22), 0.01);
@@ -40,7 +41,7 @@ public class testjunit {
 	}
 
 	@Test
-	public void testTrignometryCos() {
+	public void testTrignometryCos() throws Exception{
 //		First Quadrant
 	    assertEquals(Math.cos(15*Math.PI/180), trignometry.cos(15), 0.01);
 	    assertEquals(Math.cos(29*Math.PI/180), trignometry.cos(29), 0.01);
@@ -64,7 +65,7 @@ public class testjunit {
 	}
 
 	@Test
-	public void testTrignometryTan() {
+	public void testTrignometryTan() throws Exception{
 
 //		First Quadrant
 	    assertEquals(Math.tan(5*Math.PI/180), trignometry.tan(5), 0.01);
@@ -89,15 +90,15 @@ public class testjunit {
 	}
 
 	@Test
-	public void testTrignometrynegative() {
-		assertEquals(99999.0, trignometry.sin(-1), 0.01);
-		assertEquals(99999.0, trignometry.cos(-1), 0.01);
-		assertEquals(99999.0, trignometry.tan(-1), 0.01);
+	public void testTrignometrynegative() throws Exception{
+		assertThrows(Exception.class, () -> trignometry.sin(-24));
+		assertThrows(Exception.class, () -> trignometry.cos(-32));
+		assertThrows(Exception.class, () -> trignometry.tan(-1));
 	}
 	@Test
-	public void testTrignometryGreat() {
-		assertEquals(99999.0, trignometry.sin(361), 0.01);
-		assertEquals(99999.0, trignometry.cos(361), 0.01);
-		assertEquals(99999.0, trignometry.tan(361), 0.01);
+	public void testTrignometryGreat() throws Exception{
+		assertThrows(Exception.class, () -> trignometry.sin(371));
+		assertThrows(Exception.class, () -> trignometry.cos(420));
+		assertThrows(Exception.class, () -> trignometry.tan(800));
 	}
  }

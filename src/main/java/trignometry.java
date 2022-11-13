@@ -42,11 +42,11 @@ public class trignometry{
 		return factorial;
 	}
 //	cos value
-	public static double cos(int angle) {
+	public static double cos(int angle) throws Exception{
 		
 		double cosa = 0;
 		if(angle>=360 || angle<0) {
-        	cosa=99999;
+			throw new Exception("Invalid angle");
         }
 		else {
 		    double angleinr =toRadian(angle);
@@ -67,14 +67,14 @@ public class trignometry{
 	        return cosa;
 	}
 
-	public static double cos(double angle) {
+	public static double cos(double angle) throws Exception{
 		
 	        double n = 10;
 	        int i,j;
 	        double fac;
 	        double cosa = 0;
-	        if(angle>=6.29 || angle<0) {
-	        	cosa=99999;
+	        if(angle>=360 || angle<0) {
+	        	throw new Exception("Invalid angle");
 	        }
 	        else {
 	        	double angleinr = toRadian(angle);
@@ -90,13 +90,13 @@ public class trignometry{
 		
 	}
 //	sin value
-	public static double sin(double angle) {
+	public static double sin(double angle) throws Exception{
 	        double n = 10;
 	        int i,j;
 	        double fac;
 	        double sine = 0;
 	        if(angle>=360 || angle<0) {
-	        	sine=99999;
+	        	throw new Exception("Invalid angle");
 	        }
 	        else {
 	        	double angleinr = toRadian(angle);
@@ -111,11 +111,11 @@ public class trignometry{
 	        return sine;
 	}
 	
-	public static double sin(int angle) {
+	public static double sin(int angle) throws Exception{
 		
 		double sine = 0;
 		if(angle>=360 || angle<0) {
-        	sine=99999;
+			throw new Exception("Invalid angle");
         }
 		else {
 	        double angleinr = toRadian(angle);
@@ -134,11 +134,11 @@ public class trignometry{
 	        return sine;
 	}
 //	tan value
-	public static double tan(int angle) {
+	public static double tan(int angle) throws Exception {
 		
 		double tana= 0;
 		if(angle>=360 || angle<0) {
-        	tana=99999;
+        	throw new Exception("Invalid angle");
         }
 		else {
 				
@@ -146,10 +146,11 @@ public class trignometry{
 		}
 		return tana;
 	}
-	public static double tan(double angle) {
+	public static double tan(double angle) throws Exception{
+//		tana is "tan answer"
 		double tana=0;
-		if(angle>=6.29 || angle<0) {
-        	tana=99999;
+		if(angle>=360 || angle<0) {
+			throw new Exception("Invalid angle");
         }
 		else {
 		tana= sin(angle)/cos(angle);
